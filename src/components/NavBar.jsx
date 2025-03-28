@@ -39,6 +39,14 @@ const NavBar = () => {
               <NavButton text="Galleries" disabled={isDisabled("galleries")} />
             </Link>
           </li>
+          <li>
+            <NavButton text="Favourites" />
+          </li>
+          <li>
+            <Link to="about">
+              <NavButton text="About" disabled={isDisabled("about")} />
+            </Link>
+          </li>
         </ul>
       </nav>
     </>
