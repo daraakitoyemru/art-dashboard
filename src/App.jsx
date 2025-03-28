@@ -1,9 +1,33 @@
-function App() {
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./views/Login";
+import Paintings from "./views/Paintings";
+import Artists from "./views/Artists";
+import Gallery from "./views/Gallery";
+import About from "./views/About";
+import PageNotFound from "./views/PageNotFound";
+import Genres from "./views/Genres";
+import Layout from "./components/Layout";
+
+const App = () => {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
-      <h1>hello</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+
+        <Route element={<Layout />}>
+          <Route path="paintings" element={<Paintings />} />
+          <Route path="artists" element={<Artists />} />
+          <Route path="galleries" element={<Gallery />}>
+            {/* this route doesnt work idk */}
+            <Route path="genres" element={<Genres />} />
+          </Route>
+          <Route path="about" element={<About />} />
+
+          <Route path="*" element={<PageNotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

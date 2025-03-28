@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["./src/*"]
+    },
+    "checkJs": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "lib": ["DOM", "ES2015", "ES2016", "ES2017"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "build", "dist"]
+}
