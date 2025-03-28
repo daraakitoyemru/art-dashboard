@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./views/Login";
+import LoginPage from "./views/Login";
 import Paintings from "./views/Paintings";
 import Artists from "./views/Artists";
 import Gallery from "./views/Gallery";
@@ -12,7 +12,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<LoginPage />} />
 
         <Route element={<Layout />}>
           <Route path="paintings" element={<Paintings />} />

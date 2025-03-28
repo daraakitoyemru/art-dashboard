@@ -5,7 +5,7 @@ const NavBar = () => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  // Function to check if a NavButton should be disabled
+  // function to check if a NavButton should be disabled
   const isDisabled = (path) => {
     let cleanedPath = currentPath;
     if (currentPath.startsWith("/")) {
