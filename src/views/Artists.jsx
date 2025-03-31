@@ -1,5 +1,10 @@
+import List from "../components/List";
 const Artists = () => {
-  return <div>this is the artists page</div>;
+  return (
+    <div>
+      <List category="Artist" />
+    </div>
+  );
 };
 
 export default Artists;

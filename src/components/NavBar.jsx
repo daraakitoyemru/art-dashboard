@@ -1,11 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
-import NavButton from "./NavButton";
 
 const NavBar = () => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  // function to check if a NavButton should be disabled
+  // function to check if a link should be disabled
   const isDisabled = (path) => {
     let cleanedPath = currentPath;
     if (currentPath.startsWith("/")) {
@@ -22,33 +21,76 @@ const NavBar = () => {
 
   return (
     <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">
-              <NavButton text="Logout" disabled={isDisabled("/")} />
-            </Link>
-          </li>
-          <li>
-            <Link to="artists">
-              <NavButton text="Artists" disabled={isDisabled("artists")} />
-            </Link>
-          </li>
-          <li>
-            <Link to="galleries">
-              <NavButton text="Galleries" disabled={isDisabled("galleries")} />
-            </Link>
-          </li>
-          <li>
-            <NavButton text="Favourites" />
-          </li>
-          <li>
-            <Link to="about">
-              <NavButton text="About" disabled={isDisabled("about")} />
-            </Link>
-          </li>
-        </ul>
-      </nav>
+      <div className="navbar bg-base-100 shadow-sm">
+        <div className="flex-1">
+          <a className="btn btn-ghost text-xl">artful</a>
+        </div>
+        <div className="flex-none">
+          <ul className="menu menu-horizontal px-1">
+            <li>
+              <Link
+                to="artists"
+                className={
+                  isDisabled("artists")
+                    ? "text-gray-500 cursor-not-allowed"
+                    : ""
+                }
+                onClick={(e) => isDisabled("artists") && e.preventDefault()}>
+                Artists
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="paintings"
+                className={
+                  isDisabled("paintings")
+                    ? "text-gray-500 cursor-not-allowed"
+                    : ""
+                }
+                onClick={(e) => isDisabled("paintings") && e.preventDefault()}>
+                Paintings
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="galleries"
+                className={
+                  isDisabled("galleries")
+                    ? "text-gray-500 cursor-not-allowed"
+                    : ""
+                }
+                onClick={(e) => isDisabled("galleries") && e.preventDefault()}>
+                Galleries
+              </Link>
+            </li>
+            <li>
+              <a className="cursor-pointer">Favourites</a>
+            </li>
+            <li>
+              <Link
+                to="about"
+                className={
+                  isDisabled("about") ? "text-gray-500 cursor-not-allowed" : ""
+                }
+                onClick={(e) => isDisabled("about") && e.preventDefault()}>
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                className={
+                  isDisabled("/")
+                    ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                    : ""
+                }
+                onClick={(e) => isDisabled("/") && e.preventDefault()}>
+                Logout
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
     </>
   );
 };

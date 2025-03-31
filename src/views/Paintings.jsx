@@ -1,7 +1,9 @@
+import List from "../components/List";
+
 const Paintings = () => {
   return (
     <div>
-      <h1>this is the paintings page</h1>
+      <List category="Painting" />
     </div>
   );
 };

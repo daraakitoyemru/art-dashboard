@@ -1,5 +1,10 @@
+import List from "../components/List";
 const Gallery = () => {
-  return <div>this is the gallery page</div>;
+  return (
+    <div>
+      <List category="Gallery" />
+    </div>
+  );
 };
 
 export default Gallery;
