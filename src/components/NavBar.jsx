@@ -64,6 +64,16 @@ const NavBar = () => {
               </Link>
             </li>
             <li>
+              <Link
+                to="genres"
+                className={
+                  isDisabled("genres") ? "text-gray-500 cursor-not-allowed" : ""
+                }
+                onClick={(e) => isDisabled("genres") && e.preventDefault()}>
+                Genres
+              </Link>
+            </li>
+            <li>
               <a className="cursor-pointer">Favourites</a>
             </li>
             <li>

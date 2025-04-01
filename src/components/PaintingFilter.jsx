@@ -8,7 +8,7 @@ const ListItem = (props) => {
   );
 };
 
-const List = (props) => {
+const PaintingFilter = (props) => {
   const [selectedItem, setSelectedItem] = useState(null);
   let title = selectedItem ? selectedItem : `Select ${props.title}`;
 
@@ -47,38 +47,13 @@ const List = (props) => {
           {/* Sidebar content here */}
           {/* <ListItem text="text" onClick={handleItemClick} /> */}
           {props.data.map((d) => {
-            let artText = `${d.firstName} ${d.lastName}`;
-            let galleryText = d.galleryName;
-            let paintingText = d.title;
-            if (props.type === "artists") {
-              return (
-                <ListItem text={artText} key={d.id} onClick={handleItemClick} />
-              );
-            } else if (props.type === "galleries") {
-              return (
-                <ListItem
-                  text={galleryText}
-                  key={d.galleryId}
-                  onClick={handleItemClick}
-                />
-              );
-            } else if (props.type === "paintings") {
-              return (
-                <ListItem
-                  text={paintingText}
-                  key={d.paintingId}
-                  onClick={handleItemClick}
-                />
-              );
-            } else if (props.type === "genres") {
-              return (
-                <ListItem
-                  text={d.genreName}
-                  key={d.genreId}
-                  onClick={handleItemClick}
-                />
-              );
-            }
+            return (
+              <ListItem
+                text={d.title}
+                key={d.paintingId}
+                onClick={handleItemClick}
+              />
+            );
           })}
         </ul>
       </div>
@@ -86,4 +61,4 @@ const List = (props) => {
   );
 };
 
-export default List;
+export default PaintingFilter;

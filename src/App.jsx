@@ -9,24 +9,18 @@ import Genres from "./views/Genres";
 import Layout from "./components/Layout";
 import { ArtProvider } from "./context/ArtContext";
 
-// Using a CORS proxy to bypass CORS restrictions
-
 const App = () => {
   return (
     <ArtProvider>
       <BrowserRouter>
         <Routes>
           <Route index element={<LoginPage />} />
-
           <Route path="/" element={<Layout />}>
             <Route path="paintings" element={<Paintings />} />
             <Route path="artists" element={<Artists />} />
-            <Route path="galleries" element={<Gallery />}>
-              {/* this route doesnt work idk */}
-              <Route path="genres" element={<Genres />} />
-            </Route>
+            <Route path="galleries" element={<Gallery />} />
+            <Route path="genres" element={<Genres />} />
             <Route path="about" element={<About />} />
-
             <Route path="*" element={<PageNotFound />} />
           </Route>
         </Routes>

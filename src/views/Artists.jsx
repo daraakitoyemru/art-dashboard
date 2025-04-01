@@ -12,11 +12,16 @@ const Artists = () => {
   if (loading) return <div>Loading artists...</div>;
   if (error) return <div>Error: {error}</div>;
 
-  console.log(formatArtistName(artists));
+  // Sort artists by lastName
+  const sortedArtists = [...artists].sort((a, b) => 
+    a.lastName.localeCompare(b.lastName)
+  );
+
+  console.log(formatArtistName(sortedArtists));
 
   return (
     <div>
-      <List title="Artist" data={artists} type="artists" />
+      <List title="Artist" data={sortedArtists} type="artists" />
     </div>
   );
 };

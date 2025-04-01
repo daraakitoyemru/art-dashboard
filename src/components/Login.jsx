@@ -9,6 +9,7 @@ let fieldsState = {};
 fields.forEach((field) => (fieldsState[field.id] = ""));
 
 const Login = () => {
+  localStorage.clear();
   const [login, setLogin] = useState(fieldsState);
 
   const handleChange = (e) => {

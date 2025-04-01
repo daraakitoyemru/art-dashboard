@@ -1,4 +1,4 @@
-import List from "../components/List";
+import PaintingFilter from "../components/PaintingFilter";
 import ArtContext from "../context/ArtContext";
 import { useContext } from "react";
 const Paintings = () => {
@@ -6,7 +6,7 @@ const Paintings = () => {
 
   return (
     <div>
-      <List title="Painting" data={paintings} type="paintings" />
+      <PaintingFilter title="Painting" data={paintings} />
     </div>
   );
 };
