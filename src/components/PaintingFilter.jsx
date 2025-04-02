@@ -38,13 +38,17 @@ const PaintingFilter = (props) => {
           </div>
         )}
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side z-20">
         <label
           htmlFor="my-drawer"
           aria-label="close sidebar"
           className="drawer-overlay"></label>
+
         <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
           {/* Sidebar content here */}
+          <li>
+            <h1 className="text-3xl">Painting Filters</h1>
+          </li>
           {/* <ListItem text="text" onClick={handleItemClick} /> */}
           {props.data.map((d) => {
             return (
