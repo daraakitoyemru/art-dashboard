@@ -6,6 +6,7 @@ const Paintings = () => {
   const { paintings } = useContext(ArtContext);
 
   const data = paintings;
+
   return (
     <>
       <div>
@@ -14,9 +15,7 @@ const Paintings = () => {
       <div className="max-w-7xl mx-auto px-8">
         <div className="grid grid-cols-4 gap-4 relative z-0">
           {data.map((d) => {
-            let filename = d.imageFileName
-              ? `0${d.imageFileName}` || d.imageFileName
-              : `00${d.imageFileName}`;
+            let filename = String(d.imageFileName).padStart(6, "0");
             return (
               <Card
                 type="paintings"
@@ -24,7 +23,8 @@ const Paintings = () => {
                 title={d.title}
                 name={`${d.artists.firstName} ${d.artists.lastName}`}
                 year={d.yearOfWork}
-                key={d.id}
+                id={d.paintingId}
+                key={d.paintingId}
               />
             );
           })}
