@@ -8,7 +8,7 @@ const Paintings = () => {
   const data = paintings;
 
   return (
-    <>
+    <div className="bg-white">
       <div>
         <PaintingFilter title="Painting" data={paintings} />
       </div>
@@ -30,7 +30,7 @@ const Paintings = () => {
           })}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

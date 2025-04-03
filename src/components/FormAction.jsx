@@ -25,7 +25,8 @@ const FormAction = ({
                 : "button"
             }
             className="w-full rounded-md py-2 px-4 border border-gray-600 text-sm font-medium text-white bg-gray-700 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
-            onClick={handleClick}>
+            onClick={handleClick}
+          >
             {text}
           </button>
         </Link>

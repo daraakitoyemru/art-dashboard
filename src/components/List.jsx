@@ -2,8 +2,10 @@ import { useState } from "react";
 
 const ListItem = (props) => {
   return (
-    <li>
-      <a onClick={props.onClick}>{props.text}</a>
+    <li className="">
+      <a className="text-black p-3 hover:bg-[#dfd1c9]" onClick={props.onClick}>
+        {props.text}
+      </a>
     </li>
   );
 };
@@ -22,10 +24,11 @@ const List = (props) => {
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col items-center p-4">
         {/* Page content here */}
-        <div className="flex justify-center w-full mb-4">
+        <div className="flex justify-center w-full mt-60 mb-4">
           <label
             htmlFor="my-drawer"
-            className="btn btn-ghost text-xl drawer-button">
+            className="btn btn-ghost text-[#4B3A2C] text-3xl px-12 py-10 drawer-button rounded-lg border-[#4B3A2C] border-4 bg-white bg-opacity-40 hover:bg-white hover:text-4xl hover:px-13 hover:py-11 transition-all duration-300 ease-in-out"
+          >
             {title}
           </label>
         </div>
@@ -42,8 +45,9 @@ const List = (props) => {
         <label
           htmlFor="my-drawer"
           aria-label="close sidebar"
-          className="drawer-overlay"></label>
-        <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+          className="drawer-overlay"
+        ></label>
+        <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4 bg-[#F8F0EB]">
           {/* Sidebar content here */}
           {/* <ListItem text="text" onClick={handleItemClick} /> */}
           {props.data.map((d) => {

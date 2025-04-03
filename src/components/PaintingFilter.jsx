@@ -25,7 +25,8 @@ const PaintingFilter = (props) => {
         <div className="flex justify-center w-full mb-4">
           <label
             htmlFor="my-drawer"
-            className="btn btn-ghost text-xl drawer-button">
+            className="btn btn-ghost text-xl drawer-button"
+          >
             {title}
           </label>
         </div>
@@ -42,7 +43,8 @@ const PaintingFilter = (props) => {
         <label
           htmlFor="my-drawer"
           aria-label="close sidebar"
-          className="drawer-overlay"></label>
+          className="drawer-overlay"
+        ></label>
 
         <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
           {/* Sidebar content here */}
