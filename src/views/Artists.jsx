@@ -9,11 +9,18 @@ const formatArtistName = (data) => {
 const Artists = () => {
   const { artists, loading, error } = useContext(ArtContext);
 
-  if (loading) return <div>Loading artists...</div>;
+  if (loading) {
+    return (
+      <div className="flex flex-col items-center mt-40">
+        <img src="/loadingCircle.gif" alt="Loading..." className="w-20 h-20" />
+        <div className="text-2xl text-center mt-4">Loading artists...</div>
+      </div>
+    );
+  }
   if (error) return <div>Error: {error}</div>;
 
   // Sort artists by lastName
-  const sortedArtists = [...artists].sort((a, b) => 
+  const sortedArtists = [...artists].sort((a, b) =>
     a.lastName.localeCompare(b.lastName)
   );
 
