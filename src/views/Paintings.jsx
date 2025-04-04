@@ -8,7 +8,7 @@ const Paintings = () => {
   const data = paintings;
 
   return (
-    <div className="bg-white">
+    <div className="bg-[#F8F0EB]">
       <div>
         <PaintingFilter title="Painting" data={paintings} />
       </div>
@@ -25,6 +25,13 @@ const Paintings = () => {
                 year={d.yearOfWork}
                 id={d.paintingId}
                 key={d.paintingId}
+                height={d.height}
+                width={d.width}
+                medium={d.medium}
+                description={d.description}
+                galleryName={d.galleries.galleryName}
+                galleryCity={d.galleries.galleryCity}
+                galleryCountry={d.galleries.galleryCountry}
               />
             );
           })}

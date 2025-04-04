@@ -21,13 +21,13 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="navbar bg-base-100 shadow-sm bg-[#6B5B4F]">
+      <div className="navbar bg-base-100 shadow-sm">
         <div className="flex-1">
           <a className="btn btn-ghost text-xl bg-white">artful</a>
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-3 gap-2">
-            <li className="text-white text-base hover:text-lg transition-all duration-300 ease-in-out">
+            <li className="text-base">
               <Link
                 to="artists"
                 className={
@@ -35,12 +35,11 @@ const NavBar = () => {
                     ? "text-[#4B3A2C] cursor-not-allowed hover:text-base"
                     : ""
                 }
-                onClick={(e) => isDisabled("artists") && e.preventDefault()}
-              >
+                onClick={(e) => isDisabled("artists") && e.preventDefault()}>
                 Artists
               </Link>
             </li>
-            <li className="text-white text-base hover:text-lg transition-all duration-300 ease-in-out">
+            <li className="text-base">
               <Link
                 to="paintings"
                 className={
@@ -48,12 +47,11 @@ const NavBar = () => {
                     ? "text-[#4B3A2C] cursor-not-allowed hover:text-base"
                     : ""
                 }
-                onClick={(e) => isDisabled("paintings") && e.preventDefault()}
-              >
+                onClick={(e) => isDisabled("paintings") && e.preventDefault()}>
                 Paintings
               </Link>
             </li>
-            <li className="text-white text-base hover:text-lg transition-all duration-300 ease-in-out">
+            <li className="text-base">
               <Link
                 to="galleries"
                 className={
@@ -61,12 +59,11 @@ const NavBar = () => {
                     ? "text-[#4B3A2C] cursor-not-allowed hover:text-base"
                     : ""
                 }
-                onClick={(e) => isDisabled("galleries") && e.preventDefault()}
-              >
+                onClick={(e) => isDisabled("galleries") && e.preventDefault()}>
                 Galleries
               </Link>
             </li>
-            <li className="text-white text-base hover:text-lg transition-all duration-300 ease-in-out">
+            <li className="text-base">
               <Link
                 to="genres"
                 className={
@@ -74,15 +71,14 @@ const NavBar = () => {
                     ? "text-[#4B3A2C] cursor-not-allowed hover:text-base"
                     : ""
                 }
-                onClick={(e) => isDisabled("genres") && e.preventDefault()}
-              >
+                onClick={(e) => isDisabled("genres") && e.preventDefault()}>
                 Genres
               </Link>
             </li>
-            <li className="text-white text-base hover:text-lg transition-all duration-300 ease-in-out">
+            <li className="text-base">
               <a className="cursor-pointer">Favourites</a>
             </li>
-            <li className="text-white text-base hover:text-lg transition-all duration-300 ease-in-out">
+            <li className="text-base">
               <Link
                 to="about"
                 className={
@@ -90,12 +86,11 @@ const NavBar = () => {
                     ? "text-[#4B3A2C] cursor-not-allowed hover:text-base"
                     : ""
                 }
-                onClick={(e) => isDisabled("about") && e.preventDefault()}
-              >
+                onClick={(e) => isDisabled("about") && e.preventDefault()}>
                 About
               </Link>
             </li>
-            <li className="text-white text-base hover:text-lg transition-all duration-300 ease-in-out">
+            <li className="text-base">
               <Link
                 to="/"
                 className={
@@ -103,8 +98,7 @@ const NavBar = () => {
                     ? " text-[#4B3A2C] cursor-not-allowed hover:text-base"
                     : ""
                 }
-                onClick={(e) => isDisabled("/") && e.preventDefault()}
-              >
+                onClick={(e) => isDisabled("/") && e.preventDefault()}>
                 Logout
               </Link>
             </li>

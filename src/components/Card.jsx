@@ -32,7 +32,21 @@ const Card = (props) => {
         </div>
       </div>
 
-      <PaintingDetails type={props.type} fileName={props.fileName} id={props.id} />
+      <PaintingDetails
+        type={props.type}
+        fileName={props.fileName}
+        name={props.name}
+        year={props.year}
+        height={props.height}
+        title={props.title}
+        width={props.width}
+        medium={props.medium}
+        description={props.description}
+        id={props.id}
+        galleryName={props.galleryName}
+        galleryCity={props.galleryCity}
+        galleryCountry={props.galleryCountry}
+      />
     </>
   );
 };

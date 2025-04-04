@@ -18,15 +18,14 @@ const PaintingFilter = (props) => {
   };
 
   return (
-    <div className="drawer">
+    <div className="drawer ">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col items-center p-4">
+      <div className="drawer-content flex flex-col items-center p-4 ">
         {/* Page content here */}
         <div className="flex justify-center w-full mb-4">
           <label
             htmlFor="my-drawer"
-            className="btn btn-ghost text-xl drawer-button"
-          >
+            className="btn btn-ghost text-2xl text-black font-normal drawer-button">
             {title}
           </label>
         </div>
@@ -34,7 +33,7 @@ const PaintingFilter = (props) => {
         {/* Display selected item */}
         {selectedItem && (
           <div className="mt-8 text-center">
-            <h2 className="text-2xl font-bold">Selected Item:</h2>
+            <h2 className="text-2xl ">Selected Item:</h2>
             <p className="text-xl mt-2">{selectedItem}</p>
           </div>
         )}
@@ -43,10 +42,9 @@ const PaintingFilter = (props) => {
         <label
           htmlFor="my-drawer"
           aria-label="close sidebar"
-          className="drawer-overlay"
-        ></label>
+          className="drawer-overlay"></label>
 
-        <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+        <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4 bg-[#F8F0EB]">
           {/* Sidebar content here */}
           <li>
             <h1 className="text-3xl">Painting Filters</h1>
