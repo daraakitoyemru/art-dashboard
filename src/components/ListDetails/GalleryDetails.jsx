@@ -1,8 +1,50 @@
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import { useEffect } from "react";
+import { useMap } from "react-leaflet";
+
+const MapUpdater = ({ lat, lng }) => {
+  const map = useMap();
+
+  useEffect(() => {
+    if (lat && lng) {
+      map.setView([lat, lng], 13);
+    }
+  }, [lat, lng, map]);
+
+  return null;
+};
+
 const GalleryDetails = ({ gallery }) => {
   return (
     <div className="mt-8 w-full max-w-7xl bg-white bg-opacity-60 rounded-xl shadow-lg p-8 text-left">
-      <div className="flex flex-col sm:flex-row gap-8 items-start">
-        {/* gallery Info */}
+      <div className="flex flex-col lg:flex-row gap-10">
+        {/* map which updates when new gallery selected */}
+        <div className="relative z-0  w-full lg:w-[300px] h-[300px] flex-shrink-0 rounded-lg overflow-hidden">
+          <MapContainer
+            center={[gallery.latitude, gallery.longitude]}
+            zoom={13}
+            scrollWheelZoom={true}
+            style={{ height: "100%", width: "100%" }}
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+
+            <MapUpdater lat={gallery.latitude} lng={gallery.longitude} />
+
+            <Marker position={[gallery.latitude, gallery.longitude]}>
+              <Popup>
+                {gallery.galleryName}
+                <br />
+                {gallery.galleryCity}
+              </Popup>
+            </Marker>
+          </MapContainer>
+        </div>
+
+        {/* gallery info */}
         <div className="flex-1">
           <div className="flex justify-between items-start">
             <h2 className="text-3xl font-bold mb-4">{gallery.galleryName}</h2>
@@ -47,7 +89,8 @@ const GalleryDetails = ({ gallery }) => {
           )}
         </div>
       </div>
-      {/* paintings placeholder */}
+
+      {/* Paintings placeholder */}
       <div className="mt-10 border-t border-[#4B3A2C] pt-6">
         <h3 className="text-2xl font-semibold mb-2">Paintings</h3>
         <p className="text-gray-700 italic">meep morp paintings teehee</p>

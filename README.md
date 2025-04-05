@@ -8,16 +8,16 @@
 ## Gallery View
 
 - [x] A list of gallery names, clickable
-	- [x] Sorted by name
+  - [x] Sorted by name
 - [x] On click, list gallery name, native name, city, address, country, gallery url as working link
 - [x] Add to favorites button
-- [ ] Map using latitude + longitude fields
+- [x] Map using latitude + longitude fields
 - [x] Header gallery button goes to gallery
 - [x] Header gallery disabled when on gallery view
 - [ ] Header favorites button disabled when favorites empty
 - [ ] Painting in each gallery displayed
-	- [ ] sorted by title
-	- [ ] Should have thumbnail, artist name, panting title, year
+  - [ ] sorted by title
+  - [ ] Should have thumbnail, artist name, panting title, year
 - [ ] Changeable sorting order by artist name, painting title, and year
 - [ ] On click painting, display single painting modal dialog
 - [ ] Have an indicator/feedback when something is added to favorites
@@ -29,14 +29,14 @@
 ## Artist View
 
 - [x] List of artist names
-	- [x] Sorted by Last name
+  - [x] Sorted by Last name
 - [x] On click, displays artist info (first name last name nationality gender years (birth and death), details and working url)
 - [x] Add to favorites button
 - [x] image of artist
 - [ ] paintings for the selected artist
-	- [ ] changeable sorted by title
-	- [ ] change sort order between painting title and year
-	- [ ] displays thumbnail, painting title, year
+  - [ ] changeable sorted by title
+  - [ ] change sort order between painting title and year
+  - [ ] displays thumbnail, painting title, year
 - [ ] On click painting, display single painting modal dialog
 - [ ] Have an indicator/feedback when something is added to favorites
 
@@ -47,29 +47,29 @@
 ## Genre View
 
 - [x] List of genre names
-	- [x] Sorted by name
+  - [x] Sorted by name
 - [x] On click, displays genre name, description, and working link
 - [ ] paintings for the selected genre
-	- [ ] Sorted by title
-	- [ ] Sort order between artist name, painting title, and year
-	- [ ] displays thumbnail, artist name, painting title, year
+  - [ ] Sorted by title
+  - [ ] Sort order between artist name, painting title, and year
+  - [ ] displays thumbnail, artist name, painting title, year
 - [ ] On click painting, display single painting modal dialog
 
 ## Painting View
 
 - [ ] title radio button
-	- [ ] Has a text field that is disabled when title radio is not selected
+  - [ ] Has a text field that is disabled when title radio is not selected
 - [ ] Artist and gallery radio buttons
-	- [ ] both have select fields that are disabled when the radio buttons not selected
+  - [ ] both have select fields that are disabled when the radio buttons not selected
 - [ ] Year radio button
-	- [ ] text inputs for less and greater years, disabled when radio not selected
+  - [ ] text inputs for less and greater years, disabled when radio not selected
 - [ ] All paintings initially sorted by year
 - [ ] Displays painting thumbnail, artist name, painting title, year, gallery name, medium, width and height
 - [ ] changeable sort order between artist name, painting title, gallery name, and year
 - [x] On click painting, display single painting modal dialog
 - [ ] Changing sort order must preserve current filter
 - [ ] Clear button removes all filters
-	- [ ] resets the filter screen
+  - [ ] resets the filter screen
 
 ## Details pop-up/ Modal Dialog
 
@@ -84,9 +84,9 @@
 ## Favorites Pop-up/ Modal Dialog
 
 - [ ] Display 3 categories of favorites
-	- [ ] All favorited galleries
-	- [ ] All favorited artists
-	- [ ] All favorited paintings
+  - [ ] All favorited galleries
+  - [ ] All favorited artists
+  - [ ] All favorited paintings
 - [ ] Close button
 - [ ] Empty favorites button
 
@@ -100,7 +100,7 @@
 - [x] Display loading animation while data is being retrieved
 - [ ] Cohesive design throughout the assignment
 
-_________
+---
 
 # React + Vite
 
