@@ -46,7 +46,7 @@ const List = (props) => {
         {/* Page content here */}
         <div
           className={`flex justify-center w-full transition-all duration-500 ${
-            selectedItem ? "mt-4" : "mt-40"
+            selectedItem ? "mt-4" : "mt-60"
           } mb-4`}
         >
           {" "}

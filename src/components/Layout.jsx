@@ -9,19 +9,20 @@ const Layout = () => {
       <div
         className="absolute inset-0 opacity-35 z-0"
         style={{
-          // backgroundImage: `url('https://images.unsplash.com/photo-1582562231447-8afae47fce5f?q=80&w=2500&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
+          backgroundImage: `url('https://images.unsplash.com/photo-1582562231447-8afae47fce5f?q=80&w=2500&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-        }}></div>
+        }}
+      ></div>
 
       <div className="relative z-10 flex flex-col min-h-screen app-container">
         <NavBar />
-        <main className="flex-grow content bg-[#F8F0EB]">
+        <main className="flex-grow content">
           <Outlet />
         </main>
-        {/* <footer className="text-center py-4 bg-[#4B3A2C] text-white py-2 px-4 text-xs absolute bottom-0 w-full">
+        <footer className="text-center py-4 bg-[#4B3A2C] text-white">
           COMP 4513 Assignment 2
-        </footer> */}
+        </footer>
       </div>
     </div>
   );

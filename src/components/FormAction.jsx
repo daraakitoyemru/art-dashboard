@@ -24,7 +24,7 @@ const FormAction = ({
                 ? "reset"
                 : "button"
             }
-            className="w-full rounded-md py-2 px-4 border border-gray-600 text-sm font-medium text-white bg-gray-700 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+            className="w-full rounded-md py-2 px-4 border mb-10 border-gray-600 text-sm font-medium text-white bg-[#6B5B4F] hover:bg-[#4B3A2C] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
             onClick={handleClick}
           >
             {text}
