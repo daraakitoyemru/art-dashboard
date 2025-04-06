@@ -61,11 +61,11 @@ const Paintings = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 relative z-0">
           {showPaintings.map((d) => {
-            let filename = String(d.imageFileName).padStart(6, "0");
+            const fileName = d.imageFileName;
             return (
               <Card
                 type="paintings"
-                fileName={filename}
+                fileName={fileName}
                 title={d.title}
                 name={`${d.artists.firstName} ${d.artists.lastName}`}
                 year={d.yearOfWork}
@@ -88,7 +88,8 @@ const Paintings = () => {
             <p className="text-lg text-gray-600">No paintings found</p>
             <button
               onClick={clearFilter}
-              className="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+              className="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            >
               Clear Filters
             </button>
           </div>
