@@ -8,21 +8,27 @@ const PaintingFilter = (props) => {
 
   let title = `${props.title}`;
 
-  const artistOptions = props.data
-    .map(
-      (painting) => `${painting.artists.firstName} ${painting.artists.lastName}`
-    )
-    .map((name) => ({
-      value: name,
-      label: name,
-    }));
+  const uniqueArtists = {};
+  props.data.forEach((painting) => {
+    const artistName = `${painting.artists.firstName} ${painting.artists.lastName}`;
+    uniqueArtists[artistName] = true;
+  });
 
-  const galleryOptions = props.data
-    .map((painting) => painting.galleries.galleryName)
-    .map((name) => ({
-      value: name,
-      label: name,
-    }));
+  const artistOptions = Object.keys(uniqueArtists).map((name) => ({
+    value: name,
+    label: name,
+  }));
+
+  const uniqueGalleries = {};
+  props.data.forEach((painting) => {
+    const galleryName = painting.galleries.galleryName;
+    uniqueGalleries[galleryName] = true;
+  });
+
+  const galleryOptions = Object.keys(uniqueGalleries).map((name) => ({
+    value: name,
+    label: name,
+  }));
 
   const handleFilterChange = (filterName, value) => {
     setFilterValues({
@@ -62,7 +68,7 @@ const PaintingFilter = (props) => {
         <div className="flex justify-center w-full mb-4">
           <label
             htmlFor="my-drawer"
-            className="btn btn-ghost text-2xl text-black font-normal drawer-button">
+            className="btn btn-ghost text-2xl text-black font-bold drawer-button">
             {title}
           </label>
         </div>
@@ -109,7 +115,7 @@ const PaintingFilter = (props) => {
             <div className="flex justify-between mb-5">
               <button
                 type="submit"
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                className="text-white bg-[#4B3A2C] hover:bg-[#4B3A2C] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Apply
               </button>
               <button

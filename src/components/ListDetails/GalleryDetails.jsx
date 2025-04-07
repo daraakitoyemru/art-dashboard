@@ -7,6 +7,7 @@ import { useState } from "react";
 import ArtContext from "../../context/ArtContext.jsx";
 import Card from "../Card";
 import FavoritesContext from "../FavoritesContext";
+import FavButton from "../FavButton.jsx";
 
 const MapUpdater = ({ lat, lng }) => {
   const map = useMap();
@@ -79,6 +80,7 @@ const GalleryDetails = ({ gallery }) => {
             >
               ☆ Add to Favorites
             </button>
+            <FavButton />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-1 gap-x-6 gap-y-4 text-lg">
@@ -147,6 +149,7 @@ const GalleryDetails = ({ gallery }) => {
                     title={painting.title}
                     name={`${painting.artists.firstName} ${painting.artists.lastName}`}
                     year={painting.yearOfWork}
+                    colourData={painting.jsonAnnotations}
                     id={painting.paintingId}
                     height={painting.height}
                     width={painting.width}

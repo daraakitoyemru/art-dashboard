@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import ArtContext from "../../context/ArtContext.jsx";
 import Card from "../Card";
+import FavButton from "../FavButton.jsx";
 import FavoritesContext from "../FavoritesContext";
 
 const ArtistDetails = ({ artist }) => {
@@ -40,6 +41,7 @@ const ArtistDetails = ({ artist }) => {
             >
               ☆ Add to Favorites
             </button>
+            <FavButton />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 text-lg">
@@ -115,6 +117,7 @@ const ArtistDetails = ({ artist }) => {
                   title={painting.title}
                   name={`${artist.firstName} ${artist.lastName}`}
                   year={painting.yearOfWork}
+                  colourData={painting.jsonAnnotations}
                   id={painting.paintingId}
                   height={painting.height}
                   width={painting.width}

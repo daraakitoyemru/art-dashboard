@@ -1,4 +1,5 @@
 import PaintingDetails from "./modals/PaintingDetails";
+import DominantColours from "./DominantColours";
 
 const Card = (props) => {
   const openModal = () => {
@@ -25,7 +26,7 @@ const Card = (props) => {
           </p>
 
           <div className="card-actions justify-end">
-            <button className="btn btn-link" onClick={openModal}>
+            <button className="btn btn-link " onClick={openModal}>
               Details
             </button>
           </div>
@@ -41,6 +42,9 @@ const Card = (props) => {
         title={props.title}
         width={props.width}
         medium={props.medium}
+        wikiLink={props.wikiLink}
+        museumLink={props.museumLink}
+        colourData={props.colourData}
         description={props.description}
         id={props.id}
         galleryName={props.galleryName}
