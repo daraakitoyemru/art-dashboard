@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import ArtContext from "../../context/ArtContext.jsx";
 import Card from "../Card";
+import FavButton from "../FavButton.jsx";
 
 const ArtistDetails = ({ artist }) => {
   const { paintings } = useContext(ArtContext);
@@ -30,9 +31,7 @@ const ArtistDetails = ({ artist }) => {
             <h2 className="text-3xl font-bold mb-4">
               {artist.firstName} {artist.lastName}
             </h2>
-            <button className="btn bg-[#4B3A2C] text-white hover:opacity-90 px-4 py-2 rounded-md">
-              ☆ Add to Favorites
-            </button>
+            <FavButton />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 text-lg">
@@ -64,8 +63,7 @@ const ArtistDetails = ({ artist }) => {
                   href={artist.artistLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-800 underline break-words"
-                >
+                  className="text-blue-800 underline break-words">
                   {artist.artistLink}
                 </a>
               </p>
@@ -83,8 +81,7 @@ const ArtistDetails = ({ artist }) => {
         <select
           className="border rounded px-2 py-1 mb-6"
           value={sortBy}
-          onChange={(e) => setSortBy(e.target.value)}
-        >
+          onChange={(e) => setSortBy(e.target.value)}>
           <option>Painting Name</option>
           <option>Year</option>
         </select>
@@ -108,6 +105,7 @@ const ArtistDetails = ({ artist }) => {
                   title={painting.title}
                   name={`${artist.firstName} ${artist.lastName}`}
                   year={painting.yearOfWork}
+                  colourData={painting.jsonAnnotations}
                   id={painting.paintingId}
                   height={painting.height}
                   width={painting.width}

@@ -1,3 +1,6 @@
+import DominantColours from "../DominantColours";
+import FavButton from "../FavButton.jsx";
+
 const CardDetails = (props) => {
   return (
     <div className="card xl:card-side bg-base-100 shadow-sm modal-box w-11/12 max-w-5xl">
@@ -9,19 +12,32 @@ const CardDetails = (props) => {
           <span className="text-2xl">{props.title}</span>
         </h2>
         <p>
-          {props.name} • {props.year} | {props.galleryName} Museum |{" "}
-          {props.galleryCity}, {props.galleryCountry}
+          {props.name} • {props.year} |{" "}
+          <a
+            href={props.museumLink}
+            target="_blank"
+            className="link text-blue-800">
+            {props.galleryName} Museum
+          </a>{" "}
+          | {props.galleryCity}, {props.galleryCountry}
         </p>
         <span>
           Dimensions (cm): {props.width} x {props.height} | Medium:{" "}
-          {props.medium}
+          {props.medium} |{" "}
+          <a
+            href={props.wikiLink || "#"}
+            target="_blank"
+            className="link text-blue-800 ">
+            Wiki
+          </a>
         </span>
         <p>
           <span className="font-semibold">Description:</span>{" "}
           {props.description}
         </p>
-        <div className="card-actions justify-end">
-          <button className="btn btn-link">Add to Favourites</button>
+        <DominantColours colourData={props.colourData} />
+        <div className="card-actions justify-end mt-4">
+          <FavButton />
         </div>
       </div>
     </div>
@@ -45,6 +61,9 @@ const PaintingDetails = (props) => {
           height={props.height}
           width={props.width}
           medium={props.medium}
+          wikiLink={props.wikiLink}
+          museumLink={props.museumLink}
+          colourData={props.colourData}
           description={props.description}
           galleryName={props.galleryName}
           galleryCity={props.galleryCity}
