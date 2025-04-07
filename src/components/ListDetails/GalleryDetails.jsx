@@ -3,7 +3,9 @@ import "leaflet/dist/leaflet.css";
 import { useEffect } from "react";
 import { useMap } from "react-leaflet";
 import { useContext } from "react";
+import { useState } from "react";
 import ArtContext from "../../context/ArtContext.jsx";
+import Card from "../Card";
 
 const MapUpdater = ({ lat, lng }) => {
   const map = useMap();
@@ -19,10 +21,21 @@ const MapUpdater = ({ lat, lng }) => {
 
 const GalleryDetails = ({ gallery }) => {
   const { paintings } = useContext(ArtContext);
+  const [sortBy, setSortBy] = useState("Painting Name");
 
   const galleryPaintings = paintings
     .filter((p) => p.galleries.galleryId === gallery.galleryId)
-    .sort((a, b) => a.title.localeCompare(b.title));
+    .sort((a, b) => {
+      if (sortBy === "Artist Name") {
+        const nameA = `${a.artists.firstName} ${a.artists.lastName}`;
+        const nameB = `${b.artists.firstName} ${b.artists.lastName}`;
+        return nameA.localeCompare(nameB);
+      } else if (sortBy === "Year") {
+        return a.yearOfWork - b.yearOfWork;
+      } else {
+        return a.title.localeCompare(b.title);
+      }
+    });
 
   return (
     <div className="mt-8 w-full max-w-7xl bg-white bg-opacity-60 rounded-xl shadow-lg p-8 text-left">
@@ -95,9 +108,19 @@ const GalleryDetails = ({ gallery }) => {
 
       {/* paintings for selected gallery */}
       <div className="mt-10 border-t border-[#4B3A2C] pt-6">
-        <h3 className="text-2xl font-semibold mb-4 text-[#4B3A2C]">
+        <h3 className="text-2xl font-semibold mb-6 text-[#4B3A2C] text-center">
           Paintings
         </h3>
+        <label className="mr-2 text-[#4B3A2C] font-semibold">Sorted by: </label>
+        <select
+          className="border rounded px-2 py-1 mb-6"
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value)}
+        >
+          <option>Painting Name</option>
+          <option>Artist Name</option>
+          <option>Year</option>
+        </select>
 
         {(() => {
           if (galleryPaintings.length === 0) {
@@ -109,35 +132,25 @@ const GalleryDetails = ({ gallery }) => {
           }
 
           return (
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {galleryPaintings.map((painting) => {
                 return (
-                  <li
+                  <Card
                     key={painting.paintingId}
-                    className="bg-white bg-opacity-80 p-4 rounded shadow hover:shadow-md transition"
-                  >
-                    <h4 className="font-semibold text-[#4B3A2C] text-lg mb-2 text-center">
-                      {painting.title}
-                    </h4>
-
-                    {(() => {
-                      if (painting.imageFileName) {
-                        return (
-                          <img
-                            src={`/paintings/square/${painting.imageFileName}.jpg`}
-                            alt={painting.title}
-                            className="rounded object-cover w-full"
-                          />
-                        );
-                      }
-                    })()}
-                    <p className="text-lg mt-2 text-[#4B3A2C] italic text-center">
-                      {painting.artists.firstName} {painting.artists.lastName}
-                    </p>
-                    <p className="text-sm mt-2 text-[#4B3A2C] italic text-center">
-                      {painting.yearOfWork}
-                    </p>
-                  </li>
+                    type="paintings"
+                    fileName={painting.imageFileName}
+                    title={painting.title}
+                    name={`${painting.artists.firstName} ${painting.artists.lastName}`}
+                    year={painting.yearOfWork}
+                    id={painting.paintingId}
+                    height={painting.height}
+                    width={painting.width}
+                    medium={painting.medium}
+                    description={painting.description}
+                    galleryName={gallery.galleryName}
+                    galleryCity={gallery.galleryCity}
+                    galleryCountry={gallery.galleryCountry}
+                  />
                 );
               })}
             </ul>

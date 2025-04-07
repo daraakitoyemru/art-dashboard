@@ -1,4 +1,21 @@
+import { useState, useContext } from "react";
+import ArtContext from "../../context/ArtContext.jsx";
+import Card from "../Card";
+
 const ArtistDetails = ({ artist }) => {
+  const { paintings } = useContext(ArtContext);
+  const [sortBy, setSortBy] = useState("Painting Name");
+
+  const artistPaintings = paintings
+    .filter((p) => p.artists.artistId === artist.artistId)
+    .sort((a, b) => {
+      if (sortBy === "Year") {
+        return a.yearOfWork - b.yearOfWork;
+      } else {
+        return a.title.localeCompare(b.title);
+      }
+    });
+
   return (
     <div className="mt-8 w-full max-w-7xl bg-white bg-opacity-60 rounded-xl shadow-lg p-8 text-left">
       <div className="flex flex-col sm:flex-row gap-8 items-start">
@@ -19,14 +36,6 @@ const ArtistDetails = ({ artist }) => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 text-lg">
-            <p>
-              <span className="font-semibold">First Name:</span>{" "}
-              {artist.firstName}
-            </p>
-            <p>
-              <span className="font-semibold">Last Name:</span>{" "}
-              {artist.lastName}
-            </p>
             <p>
               <span className="font-semibold">Nationality:</span>{" "}
               {artist.nationality}
@@ -65,10 +74,53 @@ const ArtistDetails = ({ artist }) => {
         </div>
       </div>
 
-      {/* paintings placeholder */}
+      {/* paintings for selected artist */}
       <div className="mt-10 border-t border-[#4B3A2C] pt-6">
-        <h3 className="text-2xl font-semibold mb-2">Paintings</h3>
-        <p className="text-gray-700 italic">meep morp paintings teehee</p>
+        <h3 className="text-2xl font-semibold mb-6 text-[#4B3A2C] text-center">
+          Paintings
+        </h3>
+        <label className="mr-2 text-[#4B3A2C] font-semibold">Sorted by: </label>
+        <select
+          className="border rounded px-2 py-1 mb-6"
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value)}
+        >
+          <option>Painting Name</option>
+          <option>Year</option>
+        </select>
+
+        {(() => {
+          if (artistPaintings.length === 0) {
+            return (
+              <p className="text-[#4B3A2C]">
+                No paintings found for this artist.
+              </p>
+            );
+          }
+
+          return (
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {artistPaintings.map((painting) => (
+                <Card
+                  key={painting.paintingId}
+                  type="paintings"
+                  fileName={painting.imageFileName}
+                  title={painting.title}
+                  name={`${artist.firstName} ${artist.lastName}`}
+                  year={painting.yearOfWork}
+                  id={painting.paintingId}
+                  height={painting.height}
+                  width={painting.width}
+                  medium={painting.medium}
+                  description={painting.description}
+                  galleryName={painting.galleries.galleryName}
+                  galleryCity={painting.galleries.galleryCity}
+                  galleryCountry={painting.galleries.galleryCountry}
+                />
+              ))}
+            </ul>
+          );
+        })()}
       </div>
     </div>
   );

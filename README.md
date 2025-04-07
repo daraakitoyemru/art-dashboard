@@ -15,11 +15,11 @@
 - [x] Header gallery button goes to gallery
 - [x] Header gallery disabled when on gallery view
 - [ ] Header favorites button disabled when favorites empty
-- [ ] Painting in each gallery displayed
-  - [ ] sorted by title
-  - [ ] Should have thumbnail, artist name, panting title, year
-- [ ] Changeable sorting order by artist name, painting title, and year
-- [ ] On click painting, display single painting modal dialog
+- [x] Painting in each gallery displayed
+  - [x] sorted by title
+  - [x] Should have thumbnail, artist name, panting title, year
+- [x] Changeable sorting order by artist name, painting title, and year
+- [x] On click painting, display single painting modal dialog
 - [ ] Have an indicator/feedback when something is added to favorites
 
 ### Picky things for Gallery View
@@ -33,11 +33,12 @@
 - [x] On click, displays artist info (first name last name nationality gender years (birth and death), details and working url)
 - [x] Add to favorites button
 - [x] image of artist
-- [ ] paintings for the selected artist
-  - [ ] changeable sorted by title
-  - [ ] change sort order between painting title and year
-  - [ ] displays thumbnail, painting title, year
-- [ ] On click painting, display single painting modal dialog
+- [ ] Header favorites button disabled when favorites empty
+- [x] paintings for the selected artist
+  - [x] changeable sorted by title
+  - [x] change sort order between painting title and year
+  - [x] displays thumbnail, painting title, year
+- [x] On click painting, display single painting modal dialog
 - [ ] Have an indicator/feedback when something is added to favorites
 
 ### Picky things for Artist View
