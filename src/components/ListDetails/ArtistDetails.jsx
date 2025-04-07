@@ -1,8 +1,10 @@
 import { useState, useContext } from "react";
 import ArtContext from "../../context/ArtContext.jsx";
 import Card from "../Card";
+import FavoritesContext from "../FavoritesContext";
 
 const ArtistDetails = ({ artist }) => {
+  const { addArtist } = useContext(FavoritesContext);
   const { paintings } = useContext(ArtContext);
   const [sortBy, setSortBy] = useState("Painting Name");
 
@@ -30,7 +32,12 @@ const ArtistDetails = ({ artist }) => {
             <h2 className="text-3xl font-bold mb-4">
               {artist.firstName} {artist.lastName}
             </h2>
-            <button className="btn bg-[#4B3A2C] text-white hover:opacity-90 px-4 py-2 rounded-md">
+            <button
+              onClick={() =>
+                addArtist(`${artist.firstName} ${artist.lastName}`)
+              }
+              className="btn bg-[#4B3A2C] text-white hover:opacity-90 px-4 py-2 rounded-md"
+            >
               ☆ Add to Favorites
             </button>
           </div>

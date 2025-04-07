@@ -58,18 +58,18 @@
 
 ## Painting View
 
-- [ ] title radio button
+- [x] title radio button
   - [ ] Has a text field that is disabled when title radio is not selected
-- [ ] Artist and gallery radio buttons
+- [x] Artist and gallery radio buttons
   - [ ] both have select fields that are disabled when the radio buttons not selected
-- [ ] Year radio button
+- [x] Year radio button
   - [ ] text inputs for less and greater years, disabled when radio not selected
-- [ ] All paintings initially sorted by year
-- [ ] Displays painting thumbnail, artist name, painting title, year, gallery name, medium, width and height
+- [x] All paintings initially sorted by year
+- [x] Displays painting thumbnail, artist name, painting title, year, gallery name, medium, width and height
 - [ ] changeable sort order between artist name, painting title, gallery name, and year
 - [x] On click painting, display single painting modal dialog
 - [ ] Changing sort order must preserve current filter
-- [ ] Clear button removes all filters
+- [x] Clear button removes all filters
   - [ ] resets the filter screen
 
 ## Details pop-up/ Modal Dialog
@@ -77,7 +77,7 @@
 - [x] Painting image
 - [x] Painting title
 - [x] Artist name
-- [ ] Displays year of work, medium, width, height, copyright, gallery name, gallery city, working museum link, working wiki link, description, copyright text
+- [x] Displays year of work, medium, width, height, copyright, gallery name, gallery city, working museum link, working wiki link, description, copyright text
 - [ ] Dominant colours
 - [ ] Close button
 - [x] Add favorites button

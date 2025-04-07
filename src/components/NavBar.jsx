@@ -1,10 +1,15 @@
 import { Link, useLocation } from "react-router-dom";
+import FavoritesModal from "./FavoritesModal";
+import FavoritesContext from "./FavoritesContext";
+import { useContext } from "react";
 
 const NavBar = () => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  // function to check if a link should be disabled
+  const { favoriteArtists, favoriteGalleries, favoritePaintings } =
+    useContext(FavoritesContext);
+
   const isDisabled = (path) => {
     let cleanedPath = currentPath;
     if (currentPath.startsWith("/")) {
@@ -18,6 +23,15 @@ const NavBar = () => {
 
     return cleanedPath === destinationPath;
   };
+
+  let favoritesEmpty = true;
+  if (
+    favoriteArtists.length > 0 ||
+    favoriteGalleries.length > 0 ||
+    favoritePaintings.length > 0
+  ) {
+    favoritesEmpty = false;
+  }
 
   return (
     <>
@@ -83,10 +97,27 @@ const NavBar = () => {
                 Genres
               </Link>
             </li>
-            <li className="text-white text-base hover:text-lg transition-all duration-300 ease-in-out">
-              {" "}
-              <a className="cursor-pointer">Favourites</a>
+            <li
+              className={`text-base hover:text-lg transition-all duration-300 ease-in-out ${
+                favoritesEmpty
+                  ? "text-[#8e8e8e] cursor-not-allowed"
+                  : "text-white cursor-pointer"
+              }`}
+            >
+              <a
+                onClick={() => {
+                  if (!favoritesEmpty) {
+                    const modal = document.querySelector("#favorites_modal");
+                    if (modal && modal instanceof HTMLDialogElement) {
+                      modal.showModal();
+                    }
+                  }
+                }}
+              >
+                Favourites
+              </a>
             </li>
+
             <li className="text-white text-base hover:text-lg transition-all duration-300 ease-in-out">
               {" "}
               <Link

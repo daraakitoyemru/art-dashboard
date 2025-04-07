@@ -26,15 +26,6 @@ const List = (props) => {
     title = typeMap[props.type] || `Selected ${props.title}`;
   }
 
-  // let title = selectedItem
-  //   ? props.type === "artists"
-  //     ? `${selectedItem.firstName} ${selectedItem.lastName}`
-  //     : `Selected ${props.title}`
-  //   : `Select ${props.title}`;
-  // const handleItemClick = (e) => {
-  //   setSelectedItem(e.target.textContent);
-  //   // console.log("in handler", selectedItem, e.target.textContent);
-  // };
   const handleItemClick = (item) => {
     setSelectedItem(item);
   };
@@ -43,7 +34,6 @@ const List = (props) => {
     <div className="drawer">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col items-center p-4">
-        {/* Page content here */}
         <div
           className={`flex justify-center w-full transition-all duration-500 ${
             selectedItem ? "mt-4" : "mt-60"
