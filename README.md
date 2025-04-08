@@ -8,7 +8,7 @@ This project is a fully responsive single-page application (SPA) built using Rea
 
 ## Live Deployment
 
-[https://art-dashboard-git-main-daras-projects-b15f6062.vercel.app/](https://art-dashboard-git-main-daras-projects-b15f6062.vercel.app/)
+[https://art-dashboard.vercel.app/](https://art-dashboard.vercel.app/)
 
 ## Project Overview
 
