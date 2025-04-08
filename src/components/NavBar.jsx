@@ -21,9 +21,13 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="navbar bg-base-100 shadow-sm bg-[#6B5B4F]">
+      <div className="navbar bg-base-100 shadow-sm bg-[#6B5B4F] sticky top-0 z-50">
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl bg-white">artful</a>
+          <div className="avatar">
+            <div className="w-14 rounded">
+              <img src="/logoSymbol.svg" />
+            </div>
+          </div>
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-3 gap-2">
@@ -36,8 +40,7 @@ const NavBar = () => {
                     ? "text-[#df9e7d] cursor-not-allowed hover:text-base"
                     : ""
                 }
-                onClick={(e) => isDisabled("artists") && e.preventDefault()}
-              >
+                onClick={(e) => isDisabled("artists") && e.preventDefault()}>
                 Artists
               </Link>
             </li>
@@ -50,8 +53,7 @@ const NavBar = () => {
                     ? "text-[#df9e7d] cursor-not-allowed hover:text-base"
                     : ""
                 }
-                onClick={(e) => isDisabled("paintings") && e.preventDefault()}
-              >
+                onClick={(e) => isDisabled("paintings") && e.preventDefault()}>
                 Paintings
               </Link>
             </li>
@@ -64,8 +66,7 @@ const NavBar = () => {
                     ? "text-[#df9e7d] cursor-not-allowed hover:text-base"
                     : ""
                 }
-                onClick={(e) => isDisabled("galleries") && e.preventDefault()}
-              >
+                onClick={(e) => isDisabled("galleries") && e.preventDefault()}>
                 Galleries
               </Link>
             </li>
@@ -78,8 +79,7 @@ const NavBar = () => {
                     ? "text-[#df9e7d] cursor-not-allowed hover:text-base"
                     : ""
                 }
-                onClick={(e) => isDisabled("genres") && e.preventDefault()}
-              >
+                onClick={(e) => isDisabled("genres") && e.preventDefault()}>
                 Genres
               </Link>
             </li>
@@ -96,8 +96,7 @@ const NavBar = () => {
                     ? "text-[#df9e7d] cursor-not-allowed hover:text-base"
                     : ""
                 }
-                onClick={(e) => isDisabled("about") && e.preventDefault()}
-              >
+                onClick={(e) => isDisabled("about") && e.preventDefault()}>
                 About
               </Link>
             </li>
@@ -110,8 +109,7 @@ const NavBar = () => {
                     ? " text-[#df9e7d] cursor-not-allowed hover:text-base"
                     : ""
                 }
-                onClick={(e) => isDisabled("/") && e.preventDefault()}
-              >
+                onClick={(e) => isDisabled("/") && e.preventDefault()}>
                 Logout
               </Link>
             </li>

@@ -75,6 +75,7 @@ const Paintings = () => {
                 width={d.width}
                 medium={d.medium}
                 wikiLink={d.wikiLink}
+                copyrightText={d.copyrightText}
                 colourData={d.jsonAnnotations}
                 museumLink={d.museumLink}
                 description={d.description}

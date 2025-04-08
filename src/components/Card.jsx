@@ -45,6 +45,7 @@ const Card = (props) => {
         wikiLink={props.wikiLink}
         museumLink={props.museumLink}
         colourData={props.colourData}
+        copyrightText={props.copyrightText}
         description={props.description}
         id={props.id}
         galleryName={props.galleryName}

@@ -7,6 +7,7 @@ const CardDetails = (props) => {
       <figure>
         <img src={`/${props.type}/full/${props.fileName}.jpg`} alt="Album" />
       </figure>
+
       <div className="card-body">
         <h2 className="card-title">
           <span className="text-2xl">{props.title}</span>
@@ -24,18 +25,23 @@ const CardDetails = (props) => {
         <span>
           Dimensions (cm): {props.width} x {props.height} | Medium:{" "}
           {props.medium} |{" "}
-          <a
-            href={props.wikiLink || "#"}
-            target="_blank"
-            className="link text-blue-800 ">
-            Wiki
-          </a>
+          {props.wikiLink ? (
+            <a
+              href={props.wikiLink}
+              target="_blank"
+              className="link text-blue-800">
+              Wiki
+            </a>
+          ) : (
+            "No wiki link available"
+          )}
         </span>
         <p>
           <span className="font-semibold">Description:</span>{" "}
           {props.description}
         </p>
         <DominantColours colourData={props.colourData} />
+        <p className="mt-4 text-xs italic">Copyright: {props.copyrightText}</p>
         <div className="card-actions justify-end mt-4">
           <FavButton />
         </div>
@@ -65,6 +71,7 @@ const PaintingDetails = (props) => {
           museumLink={props.museumLink}
           colourData={props.colourData}
           description={props.description}
+          copyrightText={props.copyrightText}
           galleryName={props.galleryName}
           galleryCity={props.galleryCity}
           galleryCountry={props.galleryCountry}
