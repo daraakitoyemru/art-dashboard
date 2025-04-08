@@ -41,10 +41,6 @@
 - [x] On click painting, display single painting modal dialog
 - [x] Have an indicator/feedback when something is added to favorites
 
-### Picky things for Artist View
-
-- [ ] change sort order by clicking column heading or some type of icon or something else
-
 ## Genre View
 
 - [x] List of genre names

@@ -70,7 +70,8 @@ const ArtProvider = ({ children }) => {
 
   return (
     <ArtContext.Provider
-      value={{ artists, genres, paintings, galleries, loading, error }}>
+      value={{ artists, genres, paintings, galleries, loading, error }}
+    >
       {children}
     </ArtContext.Provider>
   );

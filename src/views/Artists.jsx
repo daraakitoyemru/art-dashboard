@@ -11,7 +11,7 @@ const Artists = () => {
 
   if (loading) {
     return (
-      <div className="flex flex-col items-center mt-40">
+      <div className="flex flex-col items-center mt-60">
         <img src="/loadingCircle.gif" alt="Loading..." className="w-20 h-20" />
         <div className="text-2xl text-center mt-4">Loading artists...</div>
       </div>
