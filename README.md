@@ -1,117 +1,92 @@
-# TO DO
+# COMP 4513 – Assignment 2  
 
-## Login View
+This project is a fully responsive single-page application (SPA) built using React and Tailwind CSS. It allows users to browse and explore artworks by artists, genres, galleries, and paintings. Users can filter, sort, and mark artworks as favorites for easy access. The application emphasizes rich interactivity, clean UI design, and dynamic data handling through modern React tools and APIs.
 
-- [x] Hero image in Login page
-- [x] Login page goes to either Artist View, Gallery View, or Painting View
+## Author
 
-## Gallery View
+**Dara Akitoye** and **Viktoriya Bolgachenko**  
 
-- [x] A list of gallery names, clickable
-  - [x] Sorted by name
-- [x] On click, list gallery name, native name, city, address, country, gallery url as working link
-- [x] Add to favorites button
-- [x] Map using latitude + longitude fields
-- [x] Header gallery button goes to gallery
-- [x] Header gallery disabled when on gallery view
-- [x] Header favorites button disabled when favorites empty
-- [x] Painting in each gallery displayed
-  - [x] sorted by title
-  - [x] Should have thumbnail, artist name, panting title, year
-- [x] Changeable sorting order by artist name, painting title, and year
-- [x] On click painting, display single painting modal dialog
-- [x] Have an indicator/feedback when something is added to favorites
+## Live Deployment
 
-### Picky things for Gallery View
+[https://art-dashboard-git-main-daras-projects-b15f6062.vercel.app/](https://art-dashboard-git-main-daras-projects-b15f6062.vercel.app/)  
 
-- [ ] Present labels and information in a better way (not everything should be label:value)
+## Project Overview
 
-## Artist View
+This application was developed to fulfill the requirements of COMP 4513: Web III. It demonstrates an understanding with:
 
-- [x] List of artist names
-  - [x] Sorted by Last name
-- [x] On click, displays artist info (first name last name nationality gender years (birth and death), details and working url)
-- [x] Add to favorites button
-- [x] image of artist
-- [x] Header favorites button disabled when favorites empty
-- [x] paintings for the selected artist
-  - [x] changeable sorted by title
-  - [x] change sort order between painting title and year
-  - [x] displays thumbnail, painting title, year
-- [x] On click painting, display single painting modal dialog
-- [x] Have an indicator/feedback when something is added to favorites
+- Modern JavaScript frameworks (React with Vite)
+- UI design with Tailwind CSS
+- Data management with APIs and context
+- Performance considerations through caching and lazy loading
+- Interactive modals and filter drawers
+- Responsive layouts and routing
 
-### Picky things for Artist View
+## Features
 
-- [ ] change sort order by clicking column heading or some type of icon or something else
+### 1. Login Landing Page
+- Hero layout with logo, background image, and call to action
+- Users can click to "enter" and explore the collection
 
-## Genre View
+### 2. Paintings View
+- Browse all available paintings
+- Advanced filtering by:
+  - Title (text input)
+  - Artist (dropdown)
+  - Gallery (dropdown)
+  - Year range (min to max year)
+- Custom styled drawer toggle for filters
+- Dynamic painting cards that open into modals with full info
 
-- [x] List of genre names
-  - [x] Sorted by name
-- [x] On click, displays genre name, description, and working link
-- [x] paintings for the selected genre
-  - [x] Sorted by title
-  - [x] Sort order between artist name, painting title, and year
-  - [x] displays thumbnail, artist name, painting title, year
-- [x] On click painting, display single painting modal dialog
+### 3. Artist View
+- Clickable list of all artists, sorted alphabetically
+- Each artist opens a page with:
+  - Bio and lifespan
+  - Nationality and gender
+  - Link to external resources
+  - Paintings created by the artist
 
-## Painting View
+### 4. Gallery View
+- Displays map via React Leaflet centered on selected gallery
+- Includes:
+  - Name, native name, address, country, and website
+  - List of paintings held at the gallery
+  - Map marker and popup
 
-- [x] title radio button
-  - [ ] Has a text field that is disabled when title radio is not selected
-- [x] Artist and gallery radio buttons
-  - [ ] both have select fields that are disabled when the radio buttons not selected
-- [x] Year radio button
-  - [ ] text inputs for less and greater years, disabled when radio not selected
-- [x] All paintings initially sorted by year
-- [x] Displays painting thumbnail, artist name, painting title, year, gallery name, medium, width and height
-- [ ] changeable sort order between artist name, painting title, gallery name, and year
-- [x] On click painting, display single painting modal dialog
-- [ ] Changing sort order must preserve current filter
-- [x] Clear button removes all filters
-  - [ ] resets the filter screen
+### 5. Genre View
+- Displays image, description, and Wikipedia link
+- Paintings sorted by title (default), artist, or year
 
-## Details pop-up/ Modal Dialog
+### 6. Painting Modals
+- Each painting card opens a modal with:
+  - Artist and gallery info
+  - Dimensions, medium, description, and copyright
+  - Wiki link (if available)
+  - Dominant color swatches using extracted annotation data
 
-- [x] Painting image
-- [x] Painting title
-- [x] Artist name
-- [x] Displays year of work, medium, width, height, copyright, gallery name, gallery city, working museum link, working wiki link, description, copyright text
-- [x] Dominant colours
-- [x] Close button
-- [x] Add favorites button
+### 7. Favorites System
+- Users can add paintings, artists, galleries, and genres to their favorites
+- Dedicated modal displays favorited items grouped by category
+- Remove individual items or clear all at once
+- Favorites tracked using global context state
 
-## Favorites Pop-up/ Modal Dialog
+### 8. Loading Feedback
+- When data is being fetched, a loading animation is displayed
+- Ensures smooth user experience even when API responses are delayed
 
-- [x] Display 3 categories of favorites
-  - [x] All favorited galleries
-  - [x] All favorited artists
-  - [x] All favorited paintings
-- [x] Close button
-- [x] Empty favorites button
+## Technologies Used
 
-### Picky details about favorites pop-up
+- React (via Vite)
+- Tailwind CSS
+- React Router
+- React Leaflet
+- Axios (for API calls)
+- Supabase (authentication & hosting backend)
+- Cloudinary (image hosting)
+- LocalStorage via `@uidotdev/usehooks` (for persistent caching)
 
-- [x] Provide a way to remove individual items from the favorites
+## Data Sources
 
-## Extras
-
-- [ ] Write the README file
-- [x] Display loading animation while data is being retrieved
-- [ ] Cohesive design throughout the assignment
-
----
-
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Art API hosted at: `https://art-api-he4r.onrender.com/api`
+- Cloudinary CDN: `/res.cloudinary.com/funwebdev/...` used for high-quality art images
+- OpenStreetMap tiles used for map views
+- All artwork and descriptions are sourced for educational demonstration purposes
