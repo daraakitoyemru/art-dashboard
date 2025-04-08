@@ -6,6 +6,9 @@ const FavoritesModal = () => {
     favoriteArtists,
     favoriteGalleries,
     favoritePaintings,
+    removeArtist,
+    removeGallery,
+    removePainting,
     clearFavorites,
   } = useContext(FavoritesContext);
 
@@ -35,9 +38,15 @@ const FavoritesModal = () => {
             {favoriteArtists.map((artist, index) => (
               <div
                 key={index}
-                className="border border-gray-300 rounded-md p-2 mb-2 bg-gray-50 shadow-sm"
+                className="flex justify-between items-center border border-gray-300 rounded-md p-2 mb-2 bg-gray-50 shadow-sm"
               >
-                {artist}
+                <span>{artist}</span>
+                <button
+                  onClick={() => removeArtist(artist)}
+                  className="text-gray-800 text-sm px-2 hover:text-black hover:font-bold"
+                >
+                  ✕
+                </button>
               </div>
             ))}
           </div>
@@ -51,9 +60,15 @@ const FavoritesModal = () => {
             {favoriteGalleries.map((gallery, index) => (
               <div
                 key={index}
-                className="border border-gray-300 rounded-md p-2 mb-2 bg-gray-50 shadow-sm"
+                className="flex justify-between items-center border border-gray-300 rounded-md p-2 mb-2 bg-gray-50 shadow-sm"
               >
-                {gallery}
+                <span>{gallery}</span>
+                <button
+                  onClick={() => removeGallery(gallery)}
+                  className="text-gray-800 text-sm px-2 hover:text-black hover:font-bold"
+                >
+                  ✕
+                </button>
               </div>
             ))}
           </div>
@@ -67,9 +82,15 @@ const FavoritesModal = () => {
             {favoritePaintings.map((painting, index) => (
               <div
                 key={index}
-                className="border border-gray-300 rounded-md p-2 mb-2 bg-gray-50 shadow-sm"
+                className="flex justify-between items-center border border-gray-300 rounded-md p-2 mb-2 bg-gray-50 shadow-sm"
               >
-                {painting}
+                <span>{painting}</span>
+                <button
+                  onClick={() => removePainting(painting)}
+                  className="text-gray-800 text-sm px-2 hover:text-black hover:font-bold"
+                >
+                  ✕
+                </button>
               </div>
             ))}
           </div>

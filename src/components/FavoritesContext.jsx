@@ -19,10 +19,22 @@ export const FavoritesProvider = ({ children }) => {
     }
   };
 
-  const addGenre = (genreName) => {
-    if (!favoritePaintings.includes(genreName)) {
-      setFavoritePaintings([...favoritePaintings, genreName]);
+  const addPainting = (paintingName) => {
+    if (!favoritePaintings.includes(paintingName)) {
+      setFavoritePaintings([...favoritePaintings, paintingName]);
     }
+  };
+
+  const removeArtist = (artistName) => {
+    setFavoriteArtists(favoriteArtists.filter((a) => a !== artistName));
+  };
+
+  const removeGallery = (galleryName) => {
+    setFavoriteGalleries(favoriteGalleries.filter((g) => g !== galleryName));
+  };
+
+  const removePainting = (paintingName) => {
+    setFavoritePaintings(favoritePaintings.filter((p) => p !== paintingName));
   };
 
   const clearFavorites = () => {
@@ -39,6 +51,10 @@ export const FavoritesProvider = ({ children }) => {
         favoritePaintings,
         addGallery,
         addArtist,
+        addPainting,
+        removeGallery,
+        removeArtist,
+        removePainting,
         clearFavorites,
       }}
     >

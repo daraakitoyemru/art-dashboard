@@ -1,13 +1,16 @@
 import { useState, useContext } from "react";
 import ArtContext from "../../context/ArtContext.jsx";
 import Card from "../Card";
-import FavButton from "../FavButton.jsx";
+// import FavButton from "../FavButton.jsx";
 import FavoritesContext from "../FavoritesContext";
 
 const ArtistDetails = ({ artist }) => {
-  const { addArtist } = useContext(FavoritesContext);
+  const { favoriteArtists, addArtist } = useContext(FavoritesContext);
   const { paintings } = useContext(ArtContext);
   const [sortBy, setSortBy] = useState("Painting Name");
+  const isFavorited = favoriteArtists.includes(
+    `${artist.firstName} ${artist.lastName}`
+  );
 
   const artistPaintings = paintings
     .filter((p) => p.artists.artistId === artist.artistId)
@@ -34,14 +37,20 @@ const ArtistDetails = ({ artist }) => {
               {artist.firstName} {artist.lastName}
             </h2>
             <button
-              onClick={() =>
-                addArtist(`${artist.firstName} ${artist.lastName}`)
-              }
-              className="btn bg-[#4B3A2C] text-white hover:opacity-90 px-4 py-2 rounded-md"
+              onClick={() => {
+                if (!isFavorited) {
+                  addArtist(`${artist.firstName} ${artist.lastName}`);
+                }
+              }}
+              className={`btn px-4 py-2 rounded-md ${
+                isFavorited
+                  ? "bg-gray-300 text-gray-600 cursor-default"
+                  : "bg-[#4B3A2C] text-white hover:opacity-90"
+              }`}
             >
-              ☆ Add to Favorites
+              {isFavorited ? "Added to Favorites" : "☆ Add to Favorites"}
             </button>
-            <FavButton />
+            {/* <FavButton /> */}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 text-lg">

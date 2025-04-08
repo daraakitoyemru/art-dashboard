@@ -7,7 +7,7 @@ import { useState } from "react";
 import ArtContext from "../../context/ArtContext.jsx";
 import Card from "../Card";
 import FavoritesContext from "../FavoritesContext";
-import FavButton from "../FavButton.jsx";
+// import FavButton from "../FavButton.jsx";
 
 const MapUpdater = ({ lat, lng }) => {
   const map = useMap();
@@ -22,9 +22,10 @@ const MapUpdater = ({ lat, lng }) => {
 };
 
 const GalleryDetails = ({ gallery }) => {
-  const { addGallery } = useContext(FavoritesContext);
+  const { favoriteGalleries, addGallery } = useContext(FavoritesContext);
   const { paintings } = useContext(ArtContext);
   const [sortBy, setSortBy] = useState("Painting Name");
+  const isFavorited = favoriteGalleries.includes(gallery.galleryName);
 
   const galleryPaintings = paintings
     .filter((p) => p.galleries.galleryId === gallery.galleryId)
@@ -75,12 +76,20 @@ const GalleryDetails = ({ gallery }) => {
               {gallery.galleryName}
             </h2>
             <button
-              onClick={() => addGallery(gallery.galleryName)}
-              className="btn bg-[#4B3A2C] text-white hover:opacity-90 px-4 py-2 rounded-md"
+              onClick={() => {
+                if (!isFavorited) {
+                  addGallery(gallery.galleryName);
+                }
+              }}
+              className={`btn px-4 py-2 rounded-md ${
+                isFavorited
+                  ? "bg-gray-300 text-gray-600 cursor-default"
+                  : "bg-[#4B3A2C] text-white hover:opacity-90"
+              }`}
             >
-              ☆ Add to Favorites
+              {isFavorited ? "Added to Favorites" : "☆ Add to Favorites"}
             </button>
-            <FavButton />
+            {/* <FavButton /> */}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-1 gap-x-6 gap-y-4 text-lg">

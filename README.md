@@ -14,7 +14,7 @@
 - [x] Map using latitude + longitude fields
 - [x] Header gallery button goes to gallery
 - [x] Header gallery disabled when on gallery view
-- [ ] Header favorites button disabled when favorites empty
+- [x] Header favorites button disabled when favorites empty
 - [x] Painting in each gallery displayed
   - [x] sorted by title
   - [x] Should have thumbnail, artist name, panting title, year
@@ -33,13 +33,13 @@
 - [x] On click, displays artist info (first name last name nationality gender years (birth and death), details and working url)
 - [x] Add to favorites button
 - [x] image of artist
-- [ ] Header favorites button disabled when favorites empty
+- [x] Header favorites button disabled when favorites empty
 - [x] paintings for the selected artist
   - [x] changeable sorted by title
   - [x] change sort order between painting title and year
   - [x] displays thumbnail, painting title, year
 - [x] On click painting, display single painting modal dialog
-- [ ] Have an indicator/feedback when something is added to favorites
+- [] Have an indicator/feedback when something is added to favorites
 
 ### Picky things for Artist View
 
@@ -78,18 +78,18 @@
 - [x] Painting title
 - [x] Artist name
 - [x] Displays year of work, medium, width, height, copyright, gallery name, gallery city, working museum link, working wiki link, description, copyright text
-- [ ] Dominant colours
+- [x] Dominant colours
 - [ ] Close button
 - [x] Add favorites button
 
 ## Favorites Pop-up/ Modal Dialog
 
-- [ ] Display 3 categories of favorites
-  - [ ] All favorited galleries
-  - [ ] All favorited artists
-  - [ ] All favorited paintings
-- [ ] Close button
-- [ ] Empty favorites button
+- [x] Display 3 categories of favorites
+  - [x] All favorited galleries
+  - [x] All favorited artists
+  - [x] All favorited paintings
+- [x] Close button
+- [x] Empty favorites button
 
 ### Picky details about favorites pop-up
 
