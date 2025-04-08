@@ -1,11 +1,21 @@
-import { createContext, useState } from "react";
+import { createContext } from "react";
+import { useLocalStorage } from "@uidotdev/usehooks";
 
 const FavoritesContext = createContext(null);
 
 export const FavoritesProvider = ({ children }) => {
-  const [favoriteArtists, setFavoriteArtists] = useState([]);
-  const [favoriteGalleries, setFavoriteGalleries] = useState([]);
-  const [favoritePaintings, setFavoritePaintings] = useState([]);
+  const [favoriteArtists, setFavoriteArtists] = useLocalStorage(
+    "favoriteArtists",
+    []
+  );
+  const [favoriteGalleries, setFavoriteGalleries] = useLocalStorage(
+    "favoriteGalleries",
+    []
+  );
+  const [favoritePaintings, setFavoritePaintings] = useLocalStorage(
+    "favoritePaintings",
+    []
+  );
 
   const addGallery = (galleryName) => {
     if (!favoriteGalleries.includes(galleryName)) {
