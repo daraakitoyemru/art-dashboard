@@ -50,8 +50,7 @@ const GalleryDetails = ({ gallery }) => {
             center={[gallery.latitude, gallery.longitude]}
             zoom={13}
             scrollWheelZoom={true}
-            style={{ height: "100%", width: "100%" }}
-          >
+            style={{ height: "100%", width: "100%" }}>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -85,8 +84,7 @@ const GalleryDetails = ({ gallery }) => {
                 isFavorited
                   ? "bg-gray-300 text-gray-600 cursor-default"
                   : "bg-[#4B3A2C] text-white hover:opacity-90"
-              }`}
-            >
+              }`}>
               {isFavorited ? "Added to Favorites" : "☆ Add to Favorites"}
             </button>
             {/* <FavButton /> */}
@@ -113,8 +111,7 @@ const GalleryDetails = ({ gallery }) => {
                 href={gallery.galleryWebSite}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-800 underline break-words"
-              >
+                className="text-blue-800 underline break-words">
                 {gallery.galleryWebSite}
               </a>
             </p>
@@ -131,8 +128,7 @@ const GalleryDetails = ({ gallery }) => {
         <select
           className="border rounded px-2 py-1 mb-6"
           value={sortBy}
-          onChange={(e) => setSortBy(e.target.value)}
-        >
+          onChange={(e) => setSortBy(e.target.value)}>
           <option>Painting Name</option>
           <option>Artist Name</option>
           <option>Year</option>
@@ -161,6 +157,7 @@ const GalleryDetails = ({ gallery }) => {
                     colourData={painting.jsonAnnotations}
                     id={painting.paintingId}
                     height={painting.height}
+                    copyrightText={painting.copyrightText}
                     width={painting.width}
                     medium={painting.medium}
                     description={painting.description}

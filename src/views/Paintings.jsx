@@ -44,6 +44,15 @@ const Paintings = () => {
     setShowPaintings(paintings || []);
   };
 
+  if (loading) {
+    return (
+      <div className="flex flex-col items-center mt-40">
+        <img src="/loadingCircle.gif" alt="Loading..." className="w-20 h-20" />
+        <div className="text-2xl text-center mt-4">Loading paintings...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-[#F8F0EB]">
       <div>
@@ -56,7 +65,7 @@ const Paintings = () => {
       </div>
 
       <div className="max-w-8xl mx-auto px-8 py-4">
-        <div className="mb-4 text-sm text-gray-600">
+        <div className="mb-4 text-sm text-gray-600 text-center">
           Showing {showPaintings.length} of {paintings?.length || 0} paintings
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 relative z-0">
@@ -86,17 +95,6 @@ const Paintings = () => {
             );
           })}
         </div>
-
-        {showPaintings.length === 0 && (
-          <div className="text-center py-10">
-            <p className="text-lg text-gray-600">No paintings found</p>
-            <button
-              onClick={clearFilter}
-              className="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-              Clear Filters
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
 import DominantColours from "../DominantColours";
-import FavButton from "../FavButton.jsx";
 import FavoritesContext from "../FavoritesContext";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 
 const CardDetails = (props) => {
   const { favoritePaintings, addPainting } = useContext(FavoritesContext);
