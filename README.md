@@ -20,7 +20,7 @@
   - [x] Should have thumbnail, artist name, panting title, year
 - [x] Changeable sorting order by artist name, painting title, and year
 - [x] On click painting, display single painting modal dialog
-- [ ] Have an indicator/feedback when something is added to favorites
+- [x] Have an indicator/feedback when something is added to favorites
 
 ### Picky things for Gallery View
 
@@ -39,7 +39,7 @@
   - [x] change sort order between painting title and year
   - [x] displays thumbnail, painting title, year
 - [x] On click painting, display single painting modal dialog
-- [] Have an indicator/feedback when something is added to favorites
+- [x] Have an indicator/feedback when something is added to favorites
 
 ### Picky things for Artist View
 
@@ -50,11 +50,11 @@
 - [x] List of genre names
   - [x] Sorted by name
 - [x] On click, displays genre name, description, and working link
-- [ ] paintings for the selected genre
-  - [ ] Sorted by title
-  - [ ] Sort order between artist name, painting title, and year
-  - [ ] displays thumbnail, artist name, painting title, year
-- [ ] On click painting, display single painting modal dialog
+- [x] paintings for the selected genre
+  - [x] Sorted by title
+  - [x] Sort order between artist name, painting title, and year
+  - [x] displays thumbnail, artist name, painting title, year
+- [x] On click painting, display single painting modal dialog
 
 ## Painting View
 

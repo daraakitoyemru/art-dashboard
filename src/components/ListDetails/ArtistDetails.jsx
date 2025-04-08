@@ -33,7 +33,7 @@ const ArtistDetails = ({ artist }) => {
 
         <div className="flex-1">
           <div className="flex justify-between items-start">
-            <h2 className="text-3xl font-bold mb-4">
+            <h2 className="text-3xl font-bold mb-4 text-[#4B3A2C]">
               {artist.firstName} {artist.lastName}
             </h2>
             <button
@@ -53,30 +53,25 @@ const ArtistDetails = ({ artist }) => {
             {/* <FavButton /> */}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 text-lg">
-            <p>
+          <div className="grid grid-cols-1 sm:grid-cols-1 gap-x-6 gap-y-4 text-lg">
+            <p className="text-[#4B3A2C]">
+              {artist.yearOfBirth} - {artist.yearOfDeath}
+            </p>
+            <p className="text-[#4B3A2C]">
               <span className="font-semibold">Nationality:</span>{" "}
               {artist.nationality}
             </p>
-            <p>
+            <p className="text-[#4B3A2C]">
               <span className="font-semibold">Gender:</span> {artist.gender}
-            </p>
-            <p>
-              <span className="font-semibold">Year of Birth:</span>{" "}
-              {artist.yearOfBirth}
-            </p>
-            <p>
-              <span className="font-semibold">Year of Death:</span>{" "}
-              {artist.yearOfDeath}
             </p>
           </div>
 
           {artist.details && (
             <div>
-              <p className="mt-6 text-base leading-relaxed">
+              <p className="mt-6 text-base leading-relaxed text-[#4B3A2C]">
                 <span className="font-semibold">Details:</span> {artist.details}
               </p>
-              <p className="mt-4 text-base">
+              <p className="mt-4 text-base text-[#4B3A2C]">
                 <span className="font-semibold">More Info:</span>{" "}
                 <a
                   href={artist.artistLink}
