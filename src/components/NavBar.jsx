@@ -1,8 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
+import FavoritesModal from "./FavoritesModal";
+import FavoritesContext from "./FavoritesContext";
+import { useContext } from "react";
 
 const NavBar = () => {
   const location = useLocation();
   const currentPath = location.pathname;
+
+  const { favoriteArtists, favoriteGalleries, favoritePaintings } =
+    useContext(FavoritesContext);
 
   // function to check if a link should be disabled
   const isDisabled = (path) => {
@@ -19,11 +25,22 @@ const NavBar = () => {
     return cleanedPath === destinationPath;
   };
 
+  let favoritesEmpty = true;
+  if (
+    favoriteArtists.length > 0 ||
+    favoriteGalleries.length > 0 ||
+    favoritePaintings.length > 0
+  ) {
+    favoritesEmpty = false;
+  }
+
   return (
     <>
       <div className="navbar bg-base-100 shadow-sm bg-[#6B5B4F] sticky top-0 z-50">
         <div className="flex-1">
-          <img alt="logo" className="" src="/logoSymbol.svg" />
+          <div className="h-14 w-14">
+            <img src="/logoSymbol.svg" alt="logo" />
+          </div>
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-3 gap-2">
@@ -79,9 +96,23 @@ const NavBar = () => {
                 Genres
               </Link>
             </li>
-            <li className="text-white text-base hover:text-lg transition-all duration-300 ease-in-out">
-              {" "}
-              <a className="cursor-pointer">Favourites</a>
+            <li
+              className={`text-base hover:text-lg transition-all duration-300 ease-in-out ${
+                favoritesEmpty
+                  ? "text-[#8e8e8e] cursor-not-allowed"
+                  : "text-white cursor-pointer"
+              }`}>
+              <a
+                onClick={() => {
+                  if (!favoritesEmpty) {
+                    const modal = document.querySelector("#favorites_modal");
+                    if (modal && modal instanceof HTMLDialogElement) {
+                      modal.showModal();
+                    }
+                  }
+                }}>
+                Favourites
+              </a>
             </li>
             <li className="text-white text-base hover:text-lg transition-all duration-300 ease-in-out">
               {" "}
