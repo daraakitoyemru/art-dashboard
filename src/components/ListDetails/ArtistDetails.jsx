@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import ArtContext from "../../context/ArtContext.jsx";
 import Card from "../Card";
-// import FavButton from "../FavButton.jsx";
+// import FavButton from "../FavButton.jsx";//test
 import FavoritesContext from "../FavoritesContext";
 
 const ArtistDetails = ({ artist }) => {
