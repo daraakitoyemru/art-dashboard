@@ -52,7 +52,8 @@ const NavBar = () => {
                     ? "text-[#df9e7d] cursor-not-allowed hover:text-base"
                     : ""
                 }
-                onClick={(e) => isDisabled("artists") && e.preventDefault()}>
+                onClick={(e) => isDisabled("artists") && e.preventDefault()}
+              >
                 Artists
               </Link>
             </li>
@@ -65,7 +66,8 @@ const NavBar = () => {
                     ? "text-[#df9e7d] cursor-not-allowed hover:text-base"
                     : ""
                 }
-                onClick={(e) => isDisabled("paintings") && e.preventDefault()}>
+                onClick={(e) => isDisabled("paintings") && e.preventDefault()}
+              >
                 Paintings
               </Link>
             </li>
@@ -78,7 +80,8 @@ const NavBar = () => {
                     ? "text-[#df9e7d] cursor-not-allowed hover:text-base"
                     : ""
                 }
-                onClick={(e) => isDisabled("galleries") && e.preventDefault()}>
+                onClick={(e) => isDisabled("galleries") && e.preventDefault()}
+              >
                 Galleries
               </Link>
             </li>
@@ -91,7 +94,8 @@ const NavBar = () => {
                     ? "text-[#df9e7d] cursor-not-allowed hover:text-base"
                     : ""
                 }
-                onClick={(e) => isDisabled("genres") && e.preventDefault()}>
+                onClick={(e) => isDisabled("genres") && e.preventDefault()}
+              >
                 Genres
               </Link>
             </li>
@@ -123,7 +127,8 @@ const NavBar = () => {
                     ? "text-[#df9e7d] cursor-not-allowed hover:text-base"
                     : ""
                 }
-                onClick={(e) => isDisabled("about") && e.preventDefault()}>
+                onClick={(e) => isDisabled("about") && e.preventDefault()}
+              >
                 About
               </Link>
             </li>
@@ -136,7 +141,8 @@ const NavBar = () => {
                     ? " text-[#df9e7d] cursor-not-allowed hover:text-base"
                     : ""
                 }
-                onClick={(e) => isDisabled("/") && e.preventDefault()}>
+                onClick={(e) => isDisabled("/") && e.preventDefault()}
+              >
                 Logout
               </Link>
             </li>

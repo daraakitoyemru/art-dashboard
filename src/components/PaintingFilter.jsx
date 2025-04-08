@@ -85,7 +85,7 @@ const PaintingFilter = (props) => {
         <div className="flex justify-center w-full mb-4">
           <label
             htmlFor="my-drawer"
-            className="btn btn-ghost text-2xl text-black font-bold drawer-button">
+            className=" text-[#4B3A2C] cursor-pointer text-3xl px-6 py-5 drawer-button rounded-lg hover:underline transition-all duration-300 ease-in-out">
             {title}
           </label>
         </div>
