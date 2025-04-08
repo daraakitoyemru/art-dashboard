@@ -46,8 +46,7 @@ const ArtistDetails = ({ artist }) => {
                 isFavorited
                   ? "bg-gray-300 text-gray-600 cursor-default"
                   : "bg-[#4B3A2C] text-white hover:opacity-90"
-              }`}
-            >
+              }`}>
               {isFavorited ? "Added to Favorites" : "☆ Add to Favorites"}
             </button>
             {/* <FavButton /> */}
@@ -82,8 +81,7 @@ const ArtistDetails = ({ artist }) => {
                   href={artist.artistLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-800 underline break-words"
-                >
+                  className="text-blue-800 underline break-words">
                   {artist.artistLink}
                 </a>
               </p>
@@ -101,8 +99,7 @@ const ArtistDetails = ({ artist }) => {
         <select
           className="border rounded px-2 py-1 mb-6"
           value={sortBy}
-          onChange={(e) => setSortBy(e.target.value)}
-        >
+          onChange={(e) => setSortBy(e.target.value)}>
           <option>Painting Name</option>
           <option>Year</option>
         </select>
@@ -128,6 +125,7 @@ const ArtistDetails = ({ artist }) => {
                   year={painting.yearOfWork}
                   colourData={painting.jsonAnnotations}
                   id={painting.paintingId}
+                  copyrightText={painting.copyrightText}
                   height={painting.height}
                   width={painting.width}
                   medium={painting.medium}

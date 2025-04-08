@@ -37,10 +37,8 @@ const NavBar = () => {
     <>
       <div className="navbar bg-base-100 shadow-sm bg-[#6B5B4F] sticky top-0 z-50">
         <div className="flex-1">
-          <div className="avatar">
-            <div className="w-14 rounded">
-              <img src="/logoSymbol.svg" />
-            </div>
+          <div className="h-14 w-14">
+            <img src="/logoSymbol.svg" alt="logo" />
           </div>
         </div>
         <div className="flex-none">
@@ -102,8 +100,7 @@ const NavBar = () => {
                 favoritesEmpty
                   ? "text-[#8e8e8e] cursor-not-allowed"
                   : "text-white cursor-pointer"
-              }`}
-            >
+              }`}>
               <a
                 onClick={() => {
                   if (!favoritesEmpty) {
@@ -112,8 +109,7 @@ const NavBar = () => {
                       modal.showModal();
                     }
                   }
-                }}
-              >
+                }}>
                 Favourites
               </a>
             </li>

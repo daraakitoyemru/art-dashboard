@@ -1,9 +1,6 @@
 import { Outlet } from "react-router-dom";
-import Footer from "./Footer";
-import MainFooter from "./MainFooter";
 import NavBar from "./NavBar";
 import FavoritesModal from "./FavoritesModal";
-import { useState } from "react";
 
 const Layout = () => {
   return (
@@ -14,8 +11,7 @@ const Layout = () => {
           backgroundImage: `url('https://images.unsplash.com/photo-1582562231447-8afae47fce5f?q=80&w=2500&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-        }}
-      ></div>
+        }}></div>
 
       <div className="relative z-10 flex flex-col min-h-screen app-container">
         <NavBar />
