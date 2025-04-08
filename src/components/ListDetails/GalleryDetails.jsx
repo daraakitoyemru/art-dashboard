@@ -6,7 +6,8 @@ import { useContext } from "react";
 import { useState } from "react";
 import ArtContext from "../../context/ArtContext.jsx";
 import Card from "../Card";
-import FavButton from "../FavButton.jsx";
+import FavoritesContext from "../FavoritesContext";
+// import FavButton from "../FavButton.jsx";
 
 const MapUpdater = ({ lat, lng }) => {
   const map = useMap();
@@ -21,8 +22,10 @@ const MapUpdater = ({ lat, lng }) => {
 };
 
 const GalleryDetails = ({ gallery }) => {
+  const { favoriteGalleries, addGallery } = useContext(FavoritesContext);
   const { paintings } = useContext(ArtContext);
   const [sortBy, setSortBy] = useState("Painting Name");
+  const isFavorited = favoriteGalleries.includes(gallery.galleryName);
 
   const galleryPaintings = paintings
     .filter((p) => p.galleries.galleryId === gallery.galleryId)
@@ -47,7 +50,8 @@ const GalleryDetails = ({ gallery }) => {
             center={[gallery.latitude, gallery.longitude]}
             zoom={13}
             scrollWheelZoom={true}
-            style={{ height: "100%", width: "100%" }}>
+            style={{ height: "100%", width: "100%" }}
+          >
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -71,7 +75,21 @@ const GalleryDetails = ({ gallery }) => {
             <h2 className="text-3xl font-bold mb-4 text-[#4B3A2C]">
               {gallery.galleryName}
             </h2>
-            <FavButton />
+            <button
+              onClick={() => {
+                if (!isFavorited) {
+                  addGallery(gallery.galleryName);
+                }
+              }}
+              className={`btn px-4 py-2 rounded-md ${
+                isFavorited
+                  ? "bg-gray-300 text-gray-600 cursor-default"
+                  : "bg-[#4B3A2C] text-white hover:opacity-90"
+              }`}
+            >
+              {isFavorited ? "Added to Favorites" : "☆ Add to Favorites"}
+            </button>
+            {/* <FavButton /> */}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-1 gap-x-6 gap-y-4 text-lg">
@@ -95,7 +113,8 @@ const GalleryDetails = ({ gallery }) => {
                 href={gallery.galleryWebSite}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-800 underline break-words">
+                className="text-blue-800 underline break-words"
+              >
                 {gallery.galleryWebSite}
               </a>
             </p>
@@ -112,7 +131,8 @@ const GalleryDetails = ({ gallery }) => {
         <select
           className="border rounded px-2 py-1 mb-6"
           value={sortBy}
-          onChange={(e) => setSortBy(e.target.value)}>
+          onChange={(e) => setSortBy(e.target.value)}
+        >
           <option>Painting Name</option>
           <option>Artist Name</option>
           <option>Year</option>

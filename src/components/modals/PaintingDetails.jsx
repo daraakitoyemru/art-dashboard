@@ -1,7 +1,12 @@
 import DominantColours from "../DominantColours";
 import FavButton from "../FavButton.jsx";
+import FavoritesContext from "../FavoritesContext";
+import { useState, useContext } from "react";
 
 const CardDetails = (props) => {
+  const { favoritePaintings, addPainting } = useContext(FavoritesContext);
+  const isFavorited = favoritePaintings.includes(props.title);
+
   return (
     <div className="card xl:card-side bg-base-100 shadow-sm modal-box w-11/12 max-w-5xl">
       <figure>
@@ -25,16 +30,12 @@ const CardDetails = (props) => {
         <span>
           Dimensions (cm): {props.width} x {props.height} | Medium:{" "}
           {props.medium} |{" "}
-          {props.wikiLink ? (
-            <a
-              href={props.wikiLink}
-              target="_blank"
-              className="link text-blue-800">
-              Wiki
-            </a>
-          ) : (
-            "No wiki link available"
-          )}
+          <a
+            href={props.wikiLink || "#"}
+            target="_blank"
+            className="link text-blue-800 ">
+            Wiki
+          </a>
         </span>
         <p>
           <span className="font-semibold">Description:</span>{" "}
@@ -43,7 +44,20 @@ const CardDetails = (props) => {
         <DominantColours colourData={props.colourData} />
         <p className="mt-4 text-xs italic">Copyright: {props.copyrightText}</p>
         <div className="card-actions justify-end mt-4">
-          <FavButton />
+          {/* <FavButton /> */}
+          <button
+            onClick={() => {
+              if (!isFavorited) {
+                addPainting(props.title);
+              }
+            }}
+            className={`btn px-4 py-2 rounded-md ${
+              isFavorited
+                ? "bg-gray-300 text-gray-600 cursor-default"
+                : "bg-[#4B3A2C] text-white hover:opacity-90"
+            }`}>
+            {isFavorited ? "Added to Favorites" : "☆ Add to Favorites"}
+          </button>
         </div>
       </div>
     </div>

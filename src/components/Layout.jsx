@@ -2,6 +2,8 @@ import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
 import MainFooter from "./MainFooter";
 import NavBar from "./NavBar";
+import FavoritesModal from "./FavoritesModal";
+import { useState } from "react";
 
 const Layout = () => {
   return (
@@ -24,6 +26,7 @@ const Layout = () => {
           COMP 4513 Assignment 2
         </footer>
       </div>
+      <FavoritesModal />
     </div>
   );
 };
