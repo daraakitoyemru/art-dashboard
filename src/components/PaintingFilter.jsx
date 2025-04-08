@@ -5,6 +5,8 @@ import YearRangeFilter from "./YearRangeFilter";
 
 const PaintingFilter = (props) => {
   const [filterValues, setFilterValues] = useState({});
+  const [reset, setReset] = useState(0);
+  const [selectedFilter, setSelectedFilter] = useState("");
 
   let title = `${props.title}`;
 
@@ -37,6 +39,10 @@ const PaintingFilter = (props) => {
     });
   };
 
+  const handleRadioChange = (e) => {
+    setSelectedFilter(e.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const selectedFilter = document.querySelector(
@@ -56,6 +62,17 @@ const PaintingFilter = (props) => {
     e.preventDefault();
     setFilterValues({});
 
+    const radioBtn = document.querySelectorAll(
+      'input[name="filter-option"]:checked'
+    );
+    radioBtn.forEach((r) => {
+      if (r instanceof HTMLInputElement) {
+        r.checked = false;
+      }
+    });
+
+    setSelectedFilter("");
+    setReset((prev) => prev + 1);
     if (props.clearFilters) {
       props.clearFilters();
     }
@@ -86,36 +103,49 @@ const PaintingFilter = (props) => {
 
           <form className="max-w-sm mx-auto" onSubmit={handleSubmit}>
             <TextFilter
+              key={`title-${reset}`}
               label="Title"
               name="title"
               placeholder="Enter painting title"
               onChange={handleFilterChange}
+              onRadioChange={handleRadioChange}
             />
 
             <SelectFilter
+              key={`artist-${reset}`}
               label="Artist"
               name="artist"
               options={artistOptions}
               onChange={handleFilterChange}
+              onRadioChange={handleRadioChange}
             />
 
             <SelectFilter
+              key={`gallery-${reset}`}
               label="Gallery"
               name="gallery"
               options={galleryOptions}
               onChange={handleFilterChange}
+              onRadioChange={handleRadioChange}
             />
 
             <YearRangeFilter
+              key={`year-${reset}`}
               label="Year Range"
               name="year"
               onChange={handleFilterChange}
+              onRadioChange={handleRadioChange}
             />
 
             <div className="flex justify-between mb-5">
               <button
                 type="submit"
-                className="text-white bg-[#4B3A2C] hover:bg-[#4B3A2C] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                disabled={!selectedFilter}
+                className={`text-white ${
+                  !selectedFilter
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-[#4B3A2C] hover:bg-[#4B3A2C]"
+                } focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}>
                 Apply
               </button>
               <button
