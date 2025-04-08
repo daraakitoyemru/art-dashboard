@@ -8,6 +8,14 @@ const CardDetails = (props) => {
 
   return (
     <div className="card xl:card-side bg-base-100 shadow-sm modal-box w-11/12 max-w-5xl">
+      <form method="dialog">
+        <button
+          className="absolute top-3 right-3 text-gray-600 hover:text-black text-xl"
+          aria-label="Close"
+        >
+          ✕
+        </button>
+      </form>
       <figure>
         <img src={`/${props.type}/full/${props.fileName}.jpg`} alt="Album" />
       </figure>
@@ -21,7 +29,8 @@ const CardDetails = (props) => {
           <a
             href={props.museumLink}
             target="_blank"
-            className="link text-blue-800">
+            className="link text-blue-800"
+          >
             {props.galleryName} Museum
           </a>{" "}
           | {props.galleryCity}, {props.galleryCountry}
@@ -32,7 +41,8 @@ const CardDetails = (props) => {
           <a
             href={props.wikiLink || "#"}
             target="_blank"
-            className="link text-blue-800 ">
+            className="link text-blue-800 "
+          >
             Wiki
           </a>
         </span>
@@ -54,7 +64,8 @@ const CardDetails = (props) => {
               isFavorited
                 ? "bg-gray-300 text-gray-600 cursor-default"
                 : "bg-[#4B3A2C] text-white hover:opacity-90"
-            }`}>
+            }`}
+          >
             {isFavorited ? "Added to Favorites" : "☆ Add to Favorites"}
           </button>
         </div>

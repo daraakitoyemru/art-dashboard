@@ -79,7 +79,7 @@
 - [x] Artist name
 - [x] Displays year of work, medium, width, height, copyright, gallery name, gallery city, working museum link, working wiki link, description, copyright text
 - [x] Dominant colours
-- [ ] Close button
+- [x] Close button
 - [x] Add favorites button
 
 ## Favorites Pop-up/ Modal Dialog
@@ -93,7 +93,7 @@
 
 ### Picky details about favorites pop-up
 
-- [ ] Provide a way to remove individual items from the favorites
+- [x] Provide a way to remove individual items from the favorites
 
 ## Extras
 

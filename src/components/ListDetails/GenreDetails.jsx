@@ -33,7 +33,6 @@ const GenreDetails = ({ genre }) => {
             <h2 className="text-3xl font-bold mb-4 text-[#4B3A2C]">
               {genre.genreName}
             </h2>
-            <FavButton />
           </div>
 
           {genre.description && (

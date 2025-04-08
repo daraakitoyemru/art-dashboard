@@ -68,7 +68,8 @@ const PaintingFilter = (props) => {
         <div className="flex justify-center w-full mb-4">
           <label
             htmlFor="my-drawer"
-            className="btn btn-ghost text-2xl text-black font-bold drawer-button">
+            className=" text-[#4B3A2C] cursor-pointer text-3xl px-6 py-5 drawer-button rounded-lg hover:underline transition-all duration-300 ease-in-out"
+          >
             {title}
           </label>
         </div>
@@ -77,7 +78,8 @@ const PaintingFilter = (props) => {
         <label
           htmlFor="my-drawer"
           aria-label="close sidebar"
-          className="drawer-overlay"></label>
+          className="drawer-overlay"
+        ></label>
 
         <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4 bg-[#F8F0EB]">
           <li>
@@ -115,13 +117,15 @@ const PaintingFilter = (props) => {
             <div className="flex justify-between mb-5">
               <button
                 type="submit"
-                className="text-white bg-[#4B3A2C] hover:bg-[#4B3A2C] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                className="text-white bg-[#4B3A2C] hover:bg-[#4B3A2C] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
                 Apply
               </button>
               <button
                 type="button"
                 onClick={handleClear}
-                className="text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700">
+                className="text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+              >
                 Clear
               </button>
             </div>
